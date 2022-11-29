@@ -1,0 +1,102 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y bg">
+
+<div class="container">
+	<div class="row">
+	{% include 'dashbord_sidbar.html' %}
+	<main class="col-md-9">
+		<article class="card">
+		<header class="card-header">
+			<strong class="d-inline-block mr-3">Your order history</strong>
+		</header>
+		<div class="card-body">
+			<div class="row"> 
+				<div class ="col-md-12">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th scope="col">Order #</th>
+							<th scope="col">Billing Name</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Order Total</th>
+							<th scope="col">Status</th>
+							<th scope="col">order</th>
+						  </tr>
+						</thead>
+						<tbody>
+							{% for order in orders %}
+							{% if order.status != "Cancelled" %}
+								<tr>
+									<th scope="row">{{order.order_number}}</th>
+									<td>{{order.full_name}}</td>
+									<td>{{order.phone}}</td>
+									<td>{{order.order_total}}</td>
+									<td>{{order.status}}</td>
+									{% if order.status != "Delivered" %}
+										<td><a href="{% url 'order_cancel' order.id %}" class="btn btn-danger">Cancel order</a></td>
+										{% else %}
+										<td>{{order.status}}</td>
+									{% endif %}
+								</tr>
+						  {% else %}
+						  <tr>
+						  <th scope="row">{{order.order_number}}</th>
+									<td>{{order.full_name}}</td>
+									<td>{{order.phone}}</td>
+									<td>{{order.order_total}}</td>
+									<td>{{order.status}}</td>
+									<td> Order Cancelled </td>
+						  </tr>
+						  {% endif %}
+
+						  {% endfor %}
+						</tbody>
+					  </table> 
+				</div>
+				</div>
+			</div> <!-- row.// -->
+		</div> <!-- card-body .// -->
+		
+		</article> <!-- order-group.// --> 
+	</main>
+</div> <!-- row.// -->
+</div>
+</section>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for message in messages  %}
+    swal("{{message}}");
+    {% endfor %}
+  </script>
+
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
