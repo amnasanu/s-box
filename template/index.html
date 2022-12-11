@@ -4,7 +4,8 @@
 
 <head>
    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
    <!-- basic -->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +32,8 @@
    <!-- owl stylesheets -->
    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -44,7 +46,8 @@
       <div class="container">
          <div class="row">
             <div class="col-sm-3">
-               <div class="logo" style="margin-top: -61px;margin-left: -91px;"><a href="#"><img src="{% static 'images/logo.png' %}"></a></div>
+               <div class="logo" style="margin-top: -61px;margin-left: -91px;"><a href="#"><img
+                        src="{% static 'images/logo.png' %}"></a></div>
             </div>
             <div class="col-sm-9">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,7 +60,8 @@
                         <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'store' %}">Shoes</a>
                         <div class="dropdown">
-                           <a class="nav-item nav-link last dropdown-toggle" data-bs-toggle ="dropdown" data="dropdown" aria-expanded="false" href="">categories</a>
+                           <a class="nav-item nav-link last dropdown-toggle" data-bs-toggle="dropdown" data="dropdown"
+                              aria-expanded="false" href="">categories</a>
                            <ul class="dropdown-menu">
                               {% for category in links %}
                               <a class="dropdown-item" href="{{category.get_url}}">{{category.category_name}}</a>
@@ -65,25 +69,31 @@
                            </ul>
                         </div>
                         <a class="nav-item nav-link" href="{% url 'contactpage' %}">Contact</a>
-                        <a class="nav-item nav-link last" href="{% url 'cart' %}"><img src="{% static 'images/shop_icon.png' %}">
+                        <a class="nav-item nav-link last" href="{% url 'cart' %}"><img
+                              src="{% static 'images/shop_icon.png' %}">
                            <span class="badge badge-pill badge-danger notify">{{cart_count}}</span></a>
-                  <div class="dropdown">
-                  
-                     <a class="nav-item nav-link last dropdown-toggle" data-bs-toggle ="dropdown" data="dropdown" aria-expanded="false" href=""><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="margin-top: 6px" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /> <path fill-rule="evenodd"  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg>
-                     </a>
-                     <ul class="dropdown-menu">
-                        {% if user.id is not None%}
-                        <li><a class="dropdown-item" href="{% url 'dashboard' %}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li><a class="dropdown-item" href="{% url 'login' %} ">Login</a></li>
-                        <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
-                        
-                        {% endif %}
-                     </ul>
-                  </div>
+                        <div class="dropdown">
+
+                           <a class="nav-item nav-link last dropdown-toggle" data-bs-toggle="dropdown" data="dropdown"
+                              aria-expanded="false" href=""><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                 height="22" style="margin-top: 6px" fill="currentColor" class="bi bi-person-circle"
+                                 viewBox="0 0 16 16">
+                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                 <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                              </svg>
+                           </a>
+                           <ul class="dropdown-menu">
+                              {% if user.id is not None%}
+                              <li><a class="dropdown-item" href="{% url 'dashboard' %}">Profile</a></li>
+                              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                              {% else %}
+                              <li><a class="dropdown-item" href="{% url 'login' %} ">Login</a></li>
+                              <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+
+                              {% endif %}
+                           </ul>
+                        </div>
                      </div>
                   </div>
                </nav>
@@ -119,7 +129,7 @@
                                     <h1 class="mens_text"><strong>{{special_product.product_name}}</strong></h1>
                                     <p class="lorem_text">{{special_product.discription}}</p>
                                     <a href="{{special_product.get_url}}"><button class="buy_bt">Buy Now</button></a>
-                                    <a href="{% url 'store' %}"><button class="more_bt">See More</button></a> 
+                                    <a href="{% url 'store' %}"><button class="more_bt">See More</button></a>
                                  </div>
                               </div>
                               <div class="col-sm-5">
@@ -128,20 +138,20 @@
                            </div>
                         </div>
                         {% endfor %}
+                     </div>
                   </div>
-               </div>
             </section>
          </div>
       </div>
-   </div>
-   <!-- header section end -->
-   <!-- new collection section start -->
-   <br>
-   <br>
-   <br>
-  <br>
-  <br>
-</class>
+      </div>
+      <!-- header section end -->
+      <!-- new collection section start -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+   </class>
    <div class="collection_section">
       <div class="container">
          <h1 class="new_text"><strong>Today offer</strong></h1>
@@ -160,8 +170,9 @@
                <div class="col-md-4">
                   <div class="sale_text"><strong>Today<br><span style="color: #0a0506;">Only</span> <br>Offer</strong>
                   </div>
-                  <div class="number_text"><strong>Rs<span style="color: #0a0506">{{today_offer.price}}</span></strong></div>
-                  <a href ="{{today_offer.get_url}}"> <button class="seemore">Buy Now</button>
+                  <div class="number_text"><strong>Rs<span style="color: #0a0506">{{today_offer.price}}</span></strong>
+                  </div>
+                  <a href="{{today_offer.get_url}}"> <button class="seemore">Buy Now</button>
                </div>
             </div>
          </div>
@@ -180,26 +191,32 @@
    <div class="layout_padding gallery_section">
       <div class="container">
          <div class="row">
-			{% for product in products %}
-			{% if forloop.counter < 7 %}
-            <div class="col-sm-4">
-               <div class="best_shoes">
-                  <div class="shoes_icon"><a href="{{product.get_url}}"><img src="{{product.images.url}}"></a></div>
-				  <a href="{{product.get_url}}"><p class="best_text">{{product.product_name}}</p></a>
+            {% for product in products %}
+            {% if forloop.counter < 7 %} <div class="col-sm-4">
+               <div class="best_shoes" style="min-height:400px;">
+                  <div class="shoes_icon"><a href="{{product.get_url}}"><img class="shoe-pro-img" style="height:100%; max-width: 200px;" src="{{product.images.url}}"></a></div>
+                  <a href="{{product.get_url}}">
+                     <p class="best_text">{{product.product_name}}</p>
+                  </a>
                   <div class="star_text">
                      <div class="left_part">
                         <article class="box mb-3">
                            <div class="icontext w-100">
                               <div class="text">
-                                 <span class="date text-muted float-md-right">{{review.updated_at}}</span>  
+                                 <span class="date text-muted float-md-right">{{review.updated_at}}</span>
                                  <h6 class="mb-1">{{review.user.full_name}}</h6>
                                  <div class="rating-stars">
                                     <span>
-                                       <i class="fa fa-star{% if review.rating == 0.5 %}-half-o {% elif review.rating < 1 %}-o {% endif %}" aria-hidden="True"></i>
-                                       <i class="fa fa-star{% if review.rating == 1.5 %}-half-o {% elif review.rating < 2 %}-o {% endif %}" aria-hidden="True"></i>
-                                       <i class="fa fa-star{% if review.rating == 2.5 %}-half-o {% elif review.rating < 3 %}-o {% endif %}" aria-hidden="True"></i>
-                                       <i class="fa fa-star{% if review.rating == 3.5 %}-half-o {% elif review.rating < 4 %}-o {% endif %}" aria-hidden="True"></i>
-                                       <i class="fa fa-star{% if review.rating == 4.5 %}-half-o {% elif review.rating < 5 %}-o {% endif %}" aria-hidden="True"></i>
+                                       <i class="fa fa-star{% if review.rating == 0.5 %}-half-o {% elif review.rating < 1 %}-o {% endif %}"
+                                          aria-hidden="True"></i>
+                                       <i class="fa fa-star{% if review.rating == 1.5 %}-half-o {% elif review.rating < 2 %}-o {% endif %}"
+                                          aria-hidden="True"></i>
+                                       <i class="fa fa-star{% if review.rating == 2.5 %}-half-o {% elif review.rating < 3 %}-o {% endif %}"
+                                          aria-hidden="True"></i>
+                                       <i class="fa fa-star{% if review.rating == 3.5 %}-half-o {% elif review.rating < 4 %}-o {% endif %}"
+                                          aria-hidden="True"></i>
+                                       <i class="fa fa-star{% if review.rating == 4.5 %}-half-o {% elif review.rating < 5 %}-o {% endif %}"
+                                          aria-hidden="True"></i>
                                     </span>
                                  </div>
                               </div>
@@ -207,19 +224,19 @@
                         </article>
                      </div>
                      <div class="right_part">
-                        <div class="shoes_price">Rs <span style="color: #ff4e5b;">{{product.price}}</span></div>
+                        <div class="shoes_price"><span style="color: #ff4e5b;">₹{{product.price}}/-</span></div>
                      </div>
                   </div>
                </div>
-            </div>
-			{% endif %}
-			{% endfor %}
+         </div>
+         {% endif %}
+         {% endfor %}
          <div class="buy_now_bt">
-           <a href="{% url 'store' %}"> <button class="buy_text">See More</button></a>
+            <a href="{% url 'store' %}"> <button class="buy_text">See More</button></a>
          </div>
       </div>
    </div>
-   
+
    <!-- New Arrivals section end -->
    <!-- contact section start -->
    <div class="layout_padding contact_section">
@@ -232,26 +249,28 @@
                <div class="email_box">
                   <div class="input_main">
                      <div class="container">
-                        <form action="{% url 'contact' %}" method ="post">
+                        <form action="{% url 'contact' %}" method="post">
                            {% csrf_token %}
                            <div class="form-group">
                               <input type="text" name="name" class="email-bt" placeholder="Name" name="Name" required>
                            </div>
                            <div class="form-group">
-                              <input type="text" name="phone_number" class="email-bt" placeholder="Phone Numbar" required>
+                              <input type="text" name="phone_number" class="email-bt" placeholder="Phone Numbar"
+                                 required>
                            </div>
                            <div class="form-group">
-                              <input type="text" name="email" class="email-bt" placeholder="Email" required >
+                              <input type="text" name="email" class="email-bt" placeholder="Email" required>
                            </div>
 
                            <div class="form-group">
-                              <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="massage" required></textarea>
+                              <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="massage"
+                                 required></textarea>
                            </div>
                      </div>
                      <div class="send_btn">
                         <button class="main_bt" type="submit">Send</button>
                      </div>
-                  </form>
+                     </form>
                   </div>
                </div>
             </div>
@@ -279,7 +298,8 @@
                         9744586291</span></div>
                </div>
                <div class="col-sm-6 col-lg-3">
-                  <div class="footer-logo"><img src="{% static 'images/email-icon.png' %}"><span class="map_text">sbox@gmail.com</span>
+                  <div class="footer-logo"><img src="{% static 'images/email-icon.png' %}"><span
+                        class="map_text">sbox@gmail.com</span>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-3">
@@ -300,12 +320,12 @@
                <div class="col-sm-3 col-lg-2">
                   <h2 class="shop_text">Address</h2>
                   <div class="image-icon"><img src="{% static 'images/map-icon.png' %}"><span class="pet_text">
-                     Bilathikulam road   City
-                     Kozhikode State
-                     Kerala
-                     County
-                     Kozhikode
-                  </span></div>
+                        Bilathikulam road City
+                        Kozhikode State
+                        Kerala
+                        County
+                        Kozhikode
+                     </span></div>
                </div>
                <div class="col-sm-4 col-md-6 col-lg-3">
                   <h2 class="shop_text">Our Company </h2>
@@ -336,25 +356,27 @@
       </div>
    </div>
    </div>
-    {% comment %} sweet alert {% endcomment %}
+   {% comment %} sweet alert {% endcomment %}
 
-    {% for message in messages  %}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
+   {% for message in messages %}
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script>
       swal({
          title: "Done",
          text: "{{message}}",
          icon: "success",
          button: "close",
-       });
-    </script>
+      });
+   </script>
 
-    {% endfor %}
+   {% endfor %}
 
-  
+
    <!-- section footer end -->
    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"></script>
 
    <!-- Javascript files-->
    <script src="js/jquery.min.js"></script>

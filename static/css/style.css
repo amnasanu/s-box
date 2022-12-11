@@ -367,7 +367,7 @@ body{
     display:block; margin-bottom:5px; border:1px solid #00a199; 
     margin-bottom: 5px;}
     
-}
+    
 .carousel-indicators li.active{
     margin-bottom:5px; background:#00a199;
     
@@ -539,12 +539,13 @@ body{
 
 .best_shoes {
     width: 100%;
-    float: left;
     background-color: #ffffff;
-    height: auto;
     padding: 20px 20px 20px 0px;
     margin-top: 15px;
     margin-bottom: 15px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .best_text{

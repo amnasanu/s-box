@@ -21,7 +21,7 @@ class Product(models.Model):
     shoes_pair  = models.BooleanField(default = False)
     
     def save(self, *args, **kwargs):
-        if self.today_offer== True:
+        if self.today_offer == True:
             Product.objects.filter(today_offer=True).update(today_offer=False)
         super().save(*args, **kwargs)
 
