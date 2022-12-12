@@ -14,7 +14,6 @@ import datetime
 from store.forms import VariationForm
 from store.models import ProductGallery
 from store.forms import ProductForm
-from django.db.models import Q
 from django.contrib import auth
 from django.core.paginator import Paginator
 from django.contrib import messages
