@@ -42,15 +42,93 @@
 
 <body class="main-layout">
    <!-- header section start -->
-   <class class="header_section">
+   <class class="header_section" style="padding-top: 0;">
       <div class="container">
          <div class="row">
-            <div class="col-sm-3">
-               <div class="logo" style="margin-top: -61px;margin-left: -91px;"><a href="#"><img
-                        src="{% static 'images/logo.png' %}"></a></div>
-            </div>
-            <div class="col-sm-9">
-               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- <div class="col-sm-3">
+             <div class="logo" ><a href="#"></a></div>
+            </div> -->
+            <div class="col-sm-9" style="padding-left: 0; padding: 0; ">
+
+               <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #0c0116;"  >
+                  <div class="container-fluid" style="display:flex; justify-content: space-between;">
+                     <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}"
+                          > </a>
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" style="background-color: white;  ">
+                        <span class="navbar-toggler-icon" ></span>
+                     </button>
+                     <div style="display: flex;">
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: end; align-items: flex-end; gap:20px;  ">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                           <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="{% url 'home' %}"
+                                 style="color:white ;">Home</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="{% url 'store' %}"
+                                 style="color:white ;">Shoes</a>
+                           </li>
+
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                 categories
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li> {% for category in links %}
+                                    <a class="dropdown-item" href="{{category.get_url}}">{{category.category_name}}</a>
+                                    {% endfor %}
+                                 </li>
+
+                              </ul>
+                           </li>
+
+                           <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" style="color:white ;"
+                                 href="{% url 'contactpage' %}">Contact</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-item nav-link last" href="{% url 'cart' %}"><img
+                                    src="{% static 'images/shop_icon.png' %}">
+                                 <span class="badge badge-pill badge-danger notify">{{cart_count}}</span></a>
+                           </li>
+
+
+
+
+                           <li class="nav-item dropdown" style="margin: 0 auto;">
+                              <a class="nav-item nav-link last dropdown-toggle" data-bs-toggle="dropdown"
+                                 data="dropdown" aria-expanded="false" href=""><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="22" height="22" style="margin-top: 6px" fill="currentColor"
+                                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd"
+                                       d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                 </svg>
+                              </a>
+                              <ul class="dropdown-menu">
+                                 {% if user.id is not None%}
+                                 <li><a class="dropdown-item" href="{% url 'dashboard' %}">Profile</a></li>
+                                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                 {% else %}
+                                 <li><a class="dropdown-item" href="{% url 'login' %} ">Login</a></li>
+                                 <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+
+                                 {% endif %}
+                              </ul>
+                           </li>
+                           
+                        </ul>
+
+                        
+                     </div>
+                  </div>
+                  </div>
+               </nav>
+
+               <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
@@ -96,11 +174,11 @@
                         </div>
                      </div>
                   </div>
-               </nav>
+               </nav> -->
             </div>
          </div>
       </div>
-      <div class="banner_section">
+      <div class="banner_section" style="margin-top: 100px;">
          <div class="container-fluid">
             <section class="slide-wrapper">
                <div class="container-fluid">
@@ -118,12 +196,8 @@
                         {% for special_product in f_product %}
                         <div class="carousel-item active">
                            <div class="row">
-                              <div class="col-sm-2 padding_0">
-                                 <p class="mens_taital">Men Shoes</p>
-                                 <div class="page_no">0/2</div>
-                                 <p class="mens_taital_2">Men Shoes</p>
-                              </div>
-                              <div class="col-sm-5">
+
+                              <div class="col-sm-5" style="margin-left: 100px ;">
                                  <div class="banner_taital">
                                     <h1 class="banner_text">New Running Shoes </h1>
                                     <h1 class="mens_text"><strong>{{special_product.product_name}}</strong></h1>
@@ -194,7 +268,8 @@
             {% for product in products %}
             {% if forloop.counter < 7 %} <div class="col-sm-4">
                <div class="best_shoes" style="min-height:400px;">
-                  <div class="shoes_icon"><a href="{{product.get_url}}"><img class="shoe-pro-img" style="height:100%; max-width: 200px;" src="{{product.images.url}}"></a></div>
+                  <div class="shoes_icon"><a href="{{product.get_url}}"><img class="shoe-pro-img"
+                           style="height:100%; max-width: 200px;" src="{{product.images.url}}"></a></div>
                   <a href="{{product.get_url}}">
                      <p class="best_text">{{product.product_name}}</p>
                   </a>

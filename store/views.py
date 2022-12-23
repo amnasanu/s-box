@@ -38,6 +38,7 @@ def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug = category_slug, slug= product_slug)
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product = single_product).exists()
+        print("the product is exist in single product")
     except Exception as e :
         raise e
     if request.user.is_authenticated:
