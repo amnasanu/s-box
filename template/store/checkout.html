@@ -43,30 +43,30 @@
                 <div class = "form-row">
                     <div class = "col form-group">
                         <label>Address 1 <span class="required" required>*</span></label>
-                        <input class="form-control" value={{ userprofile.address_line_1}}  placeholder="Street address" name="address_line_1">
+                        <input class="form-control" placeholder="Enter your address 1" value="{{ userprofile.address_line_1}}" name="address_line_1">
                     </div>
                     <div class = "col form-group">
                         <label>Address 2 <span class="required" required>*</span></label>
-                        <input class="form-control" value={{ userprofile.address_line_2}}  placeholder="second address" name="address_line_2">
+                        <input class="form-control" placeholder="Enter your address 2" value="{{ userprofile.address_line_2}}" name="address_line_2" >
                     </div>
                 </div>
                 <div class = "form-row">
                     <div class = "col form-group">
                         <label>City <span class="required" required>*</span></label>
-                        <input class="form-control" value= {{ userprofile.country}}  placeholder="City" name="city">
+                        <input class="form-control" placeholder="Enter your City" value= '{{ userprofile.country}}' name="city"  >
                     </div>
                     <div class = "col form-group">
                         <label>State<span class="required" required>*</span></label>
-                        <input class="form-control" value={{ userprofile.state}}  placeholder="state" name="state" >
+                        <input class="form-control" placeholder="Enter your state" value='{{ userprofile.state}}' name="state" >
                     </div>
                     <div class = "col form-group">
                         <label>Country<span class="required" required>*</span></label>
-                        <input class="form-control" value={{ userprofile.country}}  placeholder="" name="country">
+                        <input class="form-control" placeholder="Enter your  Country" value='{{ userprofile.country}}' name="country">
                     </div>
                 </div>
                     <div class= "form_row">
                         <label>Order note<span class="required" >*</span></label>
-                        <input class="form-control" type="text" placeholder="................" name="order_note">
+                        <input class="form-control"  type="text" placeholder="................" >
                     </div>
                 </div>
             </div>
