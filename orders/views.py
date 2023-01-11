@@ -114,7 +114,7 @@ def place_order(request, total = 0, quantity = 0):
         if form.is_valid():
             #store the billing information inside the order table
             data= Order()
-            data.user = current_user
+            data.user = current_user    
             data.first_name = form.cleaned_data['first_name']
             data.last_name = form.cleaned_data['last_name']
             data.email = form.cleaned_data['email']

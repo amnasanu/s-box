@@ -43,8 +43,7 @@ def register(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
             messages.success(request,'Verify your e-mail to finish signing up for s-box')
-            return  redirect('login')
-        
+            return  redirect('login')  
     else:
         form = RegistrationForm()
     context = {
