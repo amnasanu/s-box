@@ -24,7 +24,8 @@ SECRET_KEY = 'django-insecure-8=4e80wraib2%b^b=7&feyu!z-0%-)^281mzz0s7$_2i=5nmyp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -86,14 +87,14 @@ AUTH_USER_MODEL = 'accounts.Account'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sbox',
-        'USER' : 'postgres',
-        'PASSWORD' : '9744586291',
-        'HOST'  : 's-box.clohfk3pcvfa.ap-northeast-1.rds.amazonaws.com',
-        'POST'  : '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'sbox',
+    #     'USER' : 'postgres',
+    #     'PASSWORD' : '9744586291',
+    #     'HOST'  : 's-box.clohfk3pcvfa.ap-northeast-1.rds.amazonaws.com',
+    #     'POST'  : '5432',
+    # }
 }
 
 
@@ -131,12 +132,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIRS = [
-    's_box/static',
-    'adminpanel/static'
-]
+# STATIC_URL = 'static/'
+# STATIC_ROOT = BASE_DIR /'static'
+# STATICFILES_DIRS = [
+#     's_box/static',
+#     'adminpanel/static'
+# ]
+import os
+
+STATICFILES_DIRS = os.path.join(BASE_DIR,  's_box/static','adminpanel/static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -169,14 +174,14 @@ KEY = 'rzp_test_b8mAowuoMmnYfX'
 SECRET = 'b2jgVNh4PqrPA4UcmPqxKKuK'
 #hello worldgit
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE =  'storages.backends.s3boto3.S3StaticStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE =  'storages.backends.s3boto3.S3StaticStorage'
 
-AWS_ACCESS_KEY_ID = 'AKIA3TIJL7MO7HNXWWUN'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 's-boxproject'
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_FILE_OVERWRITE = True
-AWS_DEFAULT_ACL = None
+# AWS_ACCESS_KEY_ID = 'AKIA3TIJL7MO7HNXWWUN'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 's-boxproject'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = True
+# AWS_DEFAULT_ACL = None
 
 
